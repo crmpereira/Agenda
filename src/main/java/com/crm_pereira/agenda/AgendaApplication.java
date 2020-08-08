@@ -30,11 +30,11 @@ public class AgendaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Usuario usu1 = new Usuario(1, "cesar.pereiram@gmail.com", "Cesar Pereira", "777777",new Date(), "4799889999");
-		Usuario usu2 = new Usuario(2, "fran@gmail.com.br", "Francine Veiga", "788888888",new Date(), "4798989999");
+		Usuario usu1 = new Usuario(null, "cesar.pereiram@gmail.com", "Cesar Pereira", "777777",new Date(), "4799889999");
+		Usuario usu2 = new Usuario(null, "fran@gmail.com.br", "Francine Veiga", "788888888",new Date(), "4798989999");
 				
-		Agendamentos  age1  = new Agendamentos(1, new Date(), "15:05", usu1);
-		Agendamentos  age2  = new Agendamentos(2, new Date(), "15:25", usu2);
+		Agendamentos  age1  = new Agendamentos(null, new Date(), "15:05", usu1);
+		Agendamentos  age2  = new Agendamentos(null, new Date(), "15:25", usu2);
 		
 		usu1.getAgendamentos().addAll(Arrays.asList(age1,age2));
 		usu2.getAgendamentos().addAll(Arrays.asList(age2));

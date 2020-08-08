@@ -4,15 +4,26 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
+@Entity
 public class Usuario   implements Serializable  {
 
 	
 	private static final long serialVersionUID = 1L;
 	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer Id;
+	
 	private String Email;
 	private String Nome;
 	private String Passoword;
@@ -20,6 +31,7 @@ public class Usuario   implements Serializable  {
 	private String Telefone;
 	
 	@JsonIgnore
+	@OneToMany(mappedBy = "usuario")
 	private List<Agendamentos> agendamentos = new ArrayList<>();
 	
 	

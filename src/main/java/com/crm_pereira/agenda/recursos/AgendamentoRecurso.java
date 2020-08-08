@@ -31,7 +31,7 @@ public class AgendamentoRecurso {
 	
 	@GetMapping(value="/{id}")
 	public ResponseEntity<Agendamentos> findById(@PathVariable Integer id) {
-		Agendamentos usu = usuarioRepositorio.findById(id);
+		Agendamentos usu = usuarioRepositorio.findById(id).get();
 		return ResponseEntity.ok().body(usu);
 	}	
 	

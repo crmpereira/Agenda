@@ -3,12 +3,27 @@ package com.crm_pereira.agenda.entidades;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
+@Entity
 public class Agendamentos implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer Id;
-	private Date Dta_Agenda;
-	private String Hr_Agenda;
+	private Date 	Dta_Agenda;
+	private String 	Hr_Agenda;
+	
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
 	public Agendamentos() {
