@@ -1,7 +1,10 @@
 package com.crm_pereira.agenda.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 public class Usuario   implements Serializable  {
@@ -16,11 +19,13 @@ public class Usuario   implements Serializable  {
 	private Date Dta_Cadastro;
 	private String Telefone;
 	
+	@JsonIgnore
+	private List<Agendamentos> agendamentos = new ArrayList<>();
+	
+	
 	public Usuario() {
 		
-	}
-
-	
+	}	
 	
 	public Usuario(Integer id, String email, String nome, String passoword, Date dta_Cadastro, String telefone) {
 		super();
@@ -31,8 +36,6 @@ public class Usuario   implements Serializable  {
 		Dta_Cadastro = dta_Cadastro;
 		Telefone = telefone;
 	}
-
-
 
 
 	public Integer getId() {
@@ -82,6 +85,12 @@ public class Usuario   implements Serializable  {
 	public void setTelefone(String telefone) {
 		Telefone = telefone;
 	}
+
+		
+	public List<Agendamentos> getAgendamentos() {
+		return agendamentos;
+	}
+
 
 	@Override
 	public int hashCode() {
