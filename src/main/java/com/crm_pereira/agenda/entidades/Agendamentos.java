@@ -23,7 +23,7 @@ public class Agendamentos implements Serializable {
 	private String 	Hr_Agenda;
 	
 	@ManyToOne
-	@JoinColumn(name = "usuario_id")
+	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
 	public Agendamentos() {

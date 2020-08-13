@@ -14,7 +14,7 @@ import com.crm_pereira.agenda.repositorio.UsuarioRepositorio;
 
 
 @RestController
-@RequestMapping(value="/usuarios")
+@RequestMapping(value="/cad_usuarios")
 public class UsuarioRecurso {
 	
 	
@@ -25,15 +25,20 @@ public class UsuarioRecurso {
 	@GetMapping
 	public ResponseEntity<List<Usuario>> findAll() {
 		List<Usuario> list = usuarioRepositorio.findAll();
+		 
+		
 		return ResponseEntity.ok().body(list);
 	}
-
+   
 	
 	@GetMapping(value="/{id}")
 	public ResponseEntity<Usuario> findById(@PathVariable Integer id) {
 		Usuario usu = usuarioRepositorio.findById(id).get();
 		return ResponseEntity.ok().body(usu);
 	}	
+	
+	
+	
 	
 	
 	
